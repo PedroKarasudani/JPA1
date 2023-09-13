@@ -31,7 +31,7 @@ public class ProdutoDao {
 	}
 	
 	public List<Produto> buscarTodos(){
-		String SQTL = "SELECT p FROM Produto p";
-		return this.em.createQuery(SQTL, Produto.class).getResultList();
+		String JPQL = "SELECT p FROM Produto p";
+		return this.em.createQuery(JPQL, Produto.class).getResultList();
 	}
 }

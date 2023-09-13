@@ -5,11 +5,10 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -24,7 +23,7 @@ public class Produto {
 	private BigDecimal preco;
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro = LocalDate.now();
-	@Enumerated(EnumType.STRING)
+	@ManyToOne
 	private Categoria categoria;
 	
 	

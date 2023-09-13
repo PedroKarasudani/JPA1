@@ -19,4 +19,8 @@ public class ProdutoDao {
 	public void returnManaged(Produto produto) {
 		this.em.merge(produto);
 	}
+	
+	public void remover(Produto produto) {
+		this.em.remove(produto);
+	}
 }

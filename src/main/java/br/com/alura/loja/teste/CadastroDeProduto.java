@@ -24,6 +24,7 @@ public class CadastroDeProduto {
 		
 		categoriaDao.cadastrar(celulares);
 		produtoDao.cadastrar(celular);
+		produtoDao.remover(celular);
 		
 		em.getTransaction().commit();
 		em.close();

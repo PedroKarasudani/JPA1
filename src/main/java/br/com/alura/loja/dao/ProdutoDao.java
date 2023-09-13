@@ -13,8 +13,10 @@ public class ProdutoDao {
 	}
 	
 	public void cadastrar(Produto produto) {
-		em.persist(produto);
+		this.em.persist(produto);
 	}
-
 	
+	public void returnManaged(Produto produto) {
+		this.em.merge(produto);
+	}
 }

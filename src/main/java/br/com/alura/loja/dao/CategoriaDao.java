@@ -16,5 +16,7 @@ public class CategoriaDao {
 		em.persist(categoria);
 	}
 
-	
+	public void returnManaged(Categoria categoria) {
+		this.em.merge(categoria);
+	}
 }

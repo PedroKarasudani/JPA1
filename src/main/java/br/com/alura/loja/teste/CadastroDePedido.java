@@ -27,12 +27,17 @@ public class CadastroDePedido {
 		ClienteDao clienteDao = new ClienteDao(em);
 		//Procurando os dados pelo id
 		Produto produto = produtoDao.buscarPorId(1l);
+		Produto produto2 = produtoDao.buscarPorId(2l);
+		Produto produto3 = produtoDao.buscarPorId(3l);
 		Cliente cliente = clienteDao.buscarPorId(1l);
 
 		//criando pedido e adicionando item
 		Pedido pedido = new Pedido(cliente);
 		pedido.adicionarItem(new ItemPedido(10, produto, pedido));
+		pedido.adicionarItem(new ItemPedido(40, produto2, pedido));
 		
+		Pedido pedido2 = new Pedido(cliente);
+		pedido.adicionarItem(new ItemPedido(2, produto3, pedido2));
 		
 		//adionando no banco de dados
 		em.getTransaction().begin();
@@ -56,7 +61,13 @@ public class CadastroDePedido {
 	
 	private static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
-		Produto celular = new Produto("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
+		Categoria videoGames = new Categoria("VIDEOGAMES");
+		Categoria informatica = new Categoria("INFORMATICA");
+		
+		Produto celular = new Produto("Xiaomi Redmi", "128GB", new BigDecimal("800"), celulares);
+		Produto videoGame = new Produto("PS5", "Digital", new BigDecimal("3000"), videoGames);
+		Produto macbook = new Produto("Macbook", "Pro", new BigDecimal("11000"), informatica);
+		
 		Cliente cliente = new Cliente("Pedro Lourenco", "096096096");
 		
 		
@@ -68,7 +79,11 @@ public class CadastroDePedido {
 		em.getTransaction().begin();
 		
 		categoriaDao.cadastrar(celulares);
+		categoriaDao.cadastrar(videoGames);
+		categoriaDao.cadastrar(informatica);
 		produtoDao.cadastrar(celular);
+		produtoDao.cadastrar(videoGame);
+		produtoDao.cadastrar(macbook);
 		clienteDao.cadastrar(cliente);
 		
 		em.getTransaction().commit();

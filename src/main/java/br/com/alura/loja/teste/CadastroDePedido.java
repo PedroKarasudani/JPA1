@@ -44,12 +44,11 @@ public class CadastroDePedido {
 		System.out.println("Valor Total: " + totalVendido);
 		
 		List<Object[]> relatorio = pedidoDao.relatorioDeVendas();
-//		for (Object[] obj : relatorio) {
-//			System.out.println(obj[0]);
-//			System.out.println(obj[1]);
-//			System.out.println(obj[2]);
-//		}
-		relatorio.forEach(v -> System.out.println(v[0]));
+		for (Object[] obj : relatorio) {
+			System.out.println(obj[0]);
+			System.out.println(obj[1]);
+			System.out.println(obj[2]);
+		}
 		em.close();
 	}
 	

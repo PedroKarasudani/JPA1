@@ -41,11 +41,18 @@ public class PerformanceConsultas {
 		
 		Cliente cliente = new Cliente("Pedro Lourenco", "096096096");
 		
+		Pedido pedido = new Pedido(cliente);
+		pedido.adicionarItem(new ItemPedido(10, celular, pedido));
+		pedido.adicionarItem(new ItemPedido(40, videoGame, pedido));
+		Pedido pedido2 = new Pedido(cliente);
+		pedido.adicionarItem(new ItemPedido(2, macbook, pedido2));
+		
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		CategoriaDao categoriaDao = new CategoriaDao(em);
 		ClienteDao clienteDao = new ClienteDao(em);
+		PedidoDao pedidoDao = new PedidoDao(em);
 		
 		em.getTransaction().begin();
 		
@@ -56,6 +63,8 @@ public class PerformanceConsultas {
 		produtoDao.cadastrar(videoGame);
 		produtoDao.cadastrar(macbook);
 		clienteDao.cadastrar(cliente);
+		pedidoDao.cadastrar(pedido);
+		pedidoDao.cadastrar(pedido2);
 		
 		em.getTransaction().commit();
 		

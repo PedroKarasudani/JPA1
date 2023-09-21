@@ -24,7 +24,9 @@ public class PerformanceConsultas {
 		popularBancoDeDados();
 		//Iniciando JPA, para extrair os dados das tabelas
 		EntityManager em = JPAUtil.getEntityManager();
-		Pedido pedido = em.find(Pedido.class, 1l);
+		PedidoDao pedidoDao = new PedidoDao(em);
+		Pedido pedido = pedidoDao.buscarPedidoComCliente(1l);
+		
 		em.close();
 		System.out.println(pedido.getCliente().getNome());
 	}

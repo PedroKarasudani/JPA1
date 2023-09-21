@@ -38,4 +38,9 @@ public class PedidoDao {
 				+ "ORDER BY item.quantidade DESC";
 		return em.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();		
 	}
+	
+	//QUERY PLANEJADA, PARA EVITAR O LAZY EXCEPTION(JOIN FETCH-> vira EAGER)
+	public Pedido buscarPedidoComCliente(Long id) {
+		return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.cliente WHERE p.id = :id",Pedido.class).setParameter("id", id).getSingleResult();
+	}
 }

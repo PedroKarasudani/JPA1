@@ -25,7 +25,8 @@ public class PerformanceConsultas {
 		//Iniciando JPA, para extrair os dados das tabelas
 		EntityManager em = JPAUtil.getEntityManager();
 		Pedido pedido = em.find(Pedido.class, 1l);
-		System.out.println(pedido.getData());
+		em.close();
+		System.out.println(pedido.getCliente().getNome());
 	}
 	
 	

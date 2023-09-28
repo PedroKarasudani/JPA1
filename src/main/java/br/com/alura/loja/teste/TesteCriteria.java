@@ -18,6 +18,7 @@ public class TesteCriteria {
 		popularBancoDeDados();
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao produtoDao = new ProdutoDao(em);
+		produtoDao.buscarPorParametros("PS5", null, LocalDate.now());
 		produtoDao.buscarPorParametrosComCriteria("PS5", null, LocalDate.now());
 	}
 	

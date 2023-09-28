@@ -1,7 +1,6 @@
 package br.com.alura.loja.teste;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -15,7 +14,6 @@ import br.com.alura.loja.moledo.ItemPedido;
 import br.com.alura.loja.moledo.Pedido;
 import br.com.alura.loja.moledo.Produto;
 import br.com.alura.loja.util.JPAUtil;
-import br.com.alura.loja.valueobject.RelatorioDeVendasVo;
 
 public class PerformanceConsultas {
 	//Teste
@@ -28,7 +26,7 @@ public class PerformanceConsultas {
 		Pedido pedido = pedidoDao.buscarPedidoComCliente(1l);
 		
 		em.close();
-		System.out.println(pedido.getCliente().getNome());
+		System.out.println(pedido.getCliente().getDadosPessoais().getNome());
 	}
 	
 	

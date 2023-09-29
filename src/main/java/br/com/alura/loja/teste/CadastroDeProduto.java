@@ -53,7 +53,7 @@ public class CadastroDeProduto {
 		
 		em.getTransaction().commit();
 		
-		//em.find(Categoria.class, new CategoriaID("CELULARES", "xpto"));
+		em.find(Categoria.class, new CategoriaID("CELULARES", "xpto"));
 		
 		em.close();
 	}
